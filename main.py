@@ -8,7 +8,7 @@ from astrbot.api import logger
     "astrbot_plugin_test_counter",      # 插件唯一标识
     "2671016745",          # 作者名
     "测试计数器插件",     # 插件描述
-    "1.0.2",             # 版本号
+    "2.0.0",             # 版本号
     "https://github.com/2671016745/astrbot_plugin_test_counter" # 仓库地址(可选)
 )
 class TestCounterPlugin(Star):
