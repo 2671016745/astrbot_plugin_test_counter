@@ -1,0 +1,1 @@
+# astrbot_plugin_test_counter
