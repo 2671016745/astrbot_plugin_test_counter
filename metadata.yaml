@@ -1,5 +1,5 @@
 name: astrbot_plugin_test_counter
 author: 2671016745
 description: /测试 命令计数器插件。发送"/测试"即可返回当前测试序号，数据持久化存储，重启不丢失。适配 NapCat 及所有 AstrBot 平台适配器。
-version: 1.0.1
+version: "1.0.2"
 repo: https://github.com/2671016745/astrbot_plugin_test_counter
