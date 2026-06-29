@@ -5,11 +5,11 @@ from astrbot.api.star import Context, Star, register
 from astrbot.api import logger
 
 @register(
-    "astrbot_plugin_test_counter",      # 插件唯一标识
-    "2671016745",          # 作者名
-    "测试计数器插件",     # 插件描述
-    "2.0.0",             # 版本号
-    "https://github.com/2671016745/astrbot_plugin_test_counter" # 仓库地址(可选)
+    "astrbot_plugin_test_counter",
+    "2671016745",
+    "测试计数器插件",
+    "2.0.0",  
+    "https://github.com/2671016745/astrbot_plugin_test_counter"
 )
 class TestCounterPlugin(Star):
     def __init__(self, context: Context):
@@ -18,10 +18,10 @@ class TestCounterPlugin(Star):
         self.data_dir = os.path.join("data", "plugins", "astrbot_plugin_test_counter")
         os.makedirs(self.data_dir, exist_ok=True)
         self.data_file = os.path.join(self.data_dir, "counter.json")
-        
+
         # 加载或初始化计数器
         self.counter = self._load_counter()
-        logger.info(f"[TestCounter] 插件已加载，当前测试人数: {self.counter}")
+        logger.info(f"[TestCounter] 插件已加载，当前测试次数: {self.counter}")
 
     def _load_counter(self) -> int:
         """从文件加载计数"""
@@ -48,10 +48,11 @@ class TestCounterPlugin(Star):
         # 原子递增并保存
         self.counter += 1
         self._save_counter()
-        
-        reply_msg = f"测试成功，你是第{self.counter}个测试的人"
-        
+
+        # ✅ 已按要求修改输出文案
+        reply_msg = f"这是第{self.counter}次测试"
+
         # 使用 yield 发送消息，兼容 NapCat 及所有其他平台适配器
         yield event.plain_result(reply_msg)
-        
-        logger.info(f"[TestCounter] 用户 {event.get_sender_id()} 触发测试，当前计数: {self.counter}")
+
+        logger.info(f"[TestCounter] 用户 {event.get_sender_id()} 触发测试，当前次数: {self.counter}")
